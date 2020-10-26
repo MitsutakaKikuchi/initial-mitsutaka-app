@@ -1,0 +1,23 @@
+  def kids_list
+    @time = nil
+    @time_all = Timelist.all
+    @time_all.each do |time_all|
+      @a = Arrive.where(user_id: @current_user.id).where(time: time_all.time.to_s)
+      @a.each do |time_al|
+        @time = Timelist.where(time: a.time.to_s)
+      end
+    end
+
+
+
+
+      def kids_list
+    @time = nil
+    @time_all = Timelist.all
+    @a = Arrive.where(user_id: @current_user.id)
+    @a.uniq
+    @a.each {|time| time.time.to_s
+    }
+    @time = @a
+    @all_user = Arrive.order(:arrive_id)
+  end

@@ -1,0 +1,128 @@
+
+<div class="main posts-index" >   
+    <div class="container">
+        <div class="form-heading">〈登録情報〉</div>
+            <div class="form post-users-form">
+            <div class="form-body" >
+                <% if @error_message %>
+                <div class="form-error">
+                    <%= @error_message %>
+                </div>
+                <% end %>
+
+                <p class="child-kana"><%=@user.kana%></p>
+                <p class="child-name"><%=@user.name%></p>
+
+                        <table class="row-head header-check">
+                            <thead>
+                                <tr width="100%">
+                                <th >学年</th>
+                                <th >下校時間</th>
+                                <th >下校コース</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                <div class="radio-btn">
+                                    <td><%=@user.grade%>年生</td>
+                                    <td><%=@user.time%></td>
+                                    <td><%=@user.color%></td>
+                                </div>
+                                </tr>
+                            </tbody>
+                        </table>   
+                        
+                    <div class="show_menus">
+                        <%= link_to("編集", "/students/#{@user.id}/edit") %>
+                        <%= link_to("削除", "/students/#{@user.id}/destroy", {method: "post",data: { confirm: '本当に削除しますか?(この作業は取り消せません)' }}) %>
+                    </div>
+            </div>
+        </div>
+    </div>    
+
+
+<% if @arrive == nil%>
+    <div class="container">
+    <h2 align="center">〈下校情報〉</h2>
+        <div class="form post-users-form">
+            <div class="form-body" >
+                    <table class="row-head header-check">
+                        <thead>
+                            <tr >
+                                <th width="100%">下校情報が登録されていません</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                            <div class="radio-btn">
+                                <td>-</td>
+                            </div>                                
+                            </tr>
+                        </tbody>
+                    </table>   
+                        
+
+   </div> 
+
+<% else%>
+    <div class="container">
+        <h2 align="center">〈下校情報〉</h2>
+            <div class="form post-users-form">
+            <div class="form-body" >
+                        <table class="row-head header-check">
+                            <thead>
+                                <tr >
+                                <th width="50%">本日の下校時間</th>
+                                <th width="50%">下校方法</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                <div class="radio-btn">
+                                <% if @arrive.pick_up == "おやすみ"%>
+                                    <td>-</td>
+                                <% else%>
+                                    <td><%=@arrive.time%></td>
+                                <% end%>
+                                    <td><%=@arrive.pick_up%></td>
+                                </div>
+                                </tr>
+                            </tbody>
+                        </table>   
+                        <table class="row-head header-check">
+                            <thead>
+                                <tr >
+                                <th width="100%">職員伝達メモ</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                <div>
+                                <% if @arrive.message != "" %>
+                                    <td><%=@arrive.message%></td>
+                                <% else%>
+                                    <td>-</td>
+                                <%end%>
+                                </div>
+                                </tr>
+                            </tbody>
+                        </table>   
+                        
+                        
+                    <div class="show_menus">
+                        <u><%= link_to("下校情報を削除する", "/students/#{@arrive.id}/kids_destroy", {method: "post",data: { confirm: '本当に削除しますか?(この作業は取り消せません)' }}) %></u>
+                    </div>
+
+<% end%>
+        </div>
+    </div>
+</div>    
+
+
+
+
+                

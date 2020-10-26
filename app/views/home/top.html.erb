@@ -1,0 +1,45 @@
+
+<div class="main posts-index">
+        <div class="kids-container">
+            <div class="form-heading">〈施設登録情報〉</div>
+                <div class="form-body-child ">
+                    <div class="form-body">
+                <% if @error_message %>
+                <div class="form-error">
+                    <%= @error_message %>
+                </div>
+                <% end %>
+
+                <p class="child-name"><%= @user.name%></p>
+                <p class="child-kana"><%= @user.email%></p>
+
+                    <div class= "list-container">
+                        <div class="row-head header-check list-menu" width="30%">
+                                <h2 class="list-title">ユーザー管理</h2>
+                                <ul>
+                                    <li>◆<a><%= link_to("児童新規登録","/chief")%></a></li>
+                                    <li>◆<%= link_to("児童登録一覧","/students")%></li>
+                                    <li>◆<%= link_to("下校時間入力","/home_time")%></li>
+                                    <li>◆<%= link_to("下校時間確認","/list")%></li>
+
+                                </ul>
+                        </div>    
+
+                        <div class="row-head header-check list-menu" width="30%">
+                                <h2 class="list-title">将来用</h2>
+                                <ul>
+                                    <li>◆<%= link_to("将来用","/")%></li>
+                                    <li>◆<%= link_to("将来用","/")%></li>
+                                </ul>
+                        </div>    
+                    <div>
+                    </div>
+            </div>
+        </div>
+    </div>    
+</div>    
+
+
+
+
+                

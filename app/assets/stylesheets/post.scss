@@ -1,0 +1,276 @@
+// Place all the styles related to the post controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+textarea{
+  resize: none;
+}
+.user-user-form{
+    display:flex;
+    justify-content: space-around;
+}
+.user-user-form input{
+    margin:0 auto;
+}
+
+.kids-container{
+    max-width: 100%;
+    margin: 60px auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    clear: both;
+}
+.list-container-grid{
+  display:grid;
+  grid-template-columns: 75% 25%;
+}
+.home_post_menu{
+  max-width: 30%;
+  background: #f0bbbb;
+  text-align: center;
+  font-weight: bold;
+}
+.list-container{
+  max-width: 100%;
+  margin: 80px auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  clear: both;
+}
+.child-name{
+  font-size:3rem;
+  text-align:center;
+  margin:0 auto;
+}
+.child-grade{
+  font-size:2rem;
+}
+.child-kana{
+  font-size:2rem;
+  text-align:center;
+  margin:0 auto;
+}
+.form-body-child{
+    width: 100%;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 0 2px 6px #c1ced7;
+    padding-top:15px;
+  }
+.radio-btn{
+  text-align:center;
+  margin:0 auto;
+}
+.child-header{
+  padding-top:10px;
+
+}
+.icon-button{
+  font-size:1.4rem;
+  padding: 0 3px 0 3px;
+}
+table{
+    width:80%;
+    text-align: center;
+    margin:0 auto;
+}
+table input{
+   text-align:center;
+   padding:0px 10px;
+   margin:0 auto;
+}
+
+/*====================下校リスト↓=======================*/
+.list-head {
+  border-collapse: separate;
+  vertical-align: middle;
+  width:100%
+
+}
+.time_title{
+  width:80px;
+  height:100%;
+}
+
+.list-head th,
+.list-head td {
+  padding: 0px;
+  height: 30px;
+  border: 1px solid #dbe1e8;
+  
+}
+
+.list-head th {
+  background: #bcbdbe;
+}
+
+.list-head label {
+  line-height: 34px;
+  margin: 0;
+}
+.menu  td{
+  font-size: 0.5rem;
+  padding:0;
+  width:100%;
+}
+.kids_list_a{
+  font-size: 0.5rem;
+}
+.message{
+  font-weight: bold;
+  width: 10px;
+}
+
+.list_container{
+  display: grid;
+  grid-template-columns: 0.1fr 1fr 1fr 1fr;
+}
+
+.border{
+  border: 1px solid #080808; 
+}
+.colmenu{
+  /*==ひとり帰り・お迎え項目==*/
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.colmenu-3{
+  /*==ひとり帰り・お迎え項目==*/
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.rowmenu{
+  /*==時間項目==*/
+  width:3%;
+  font-size:1rem;
+}
+.form-control{
+  margin-left:10%;
+  height:60px;
+  width:50%;
+  font-size:1.5rem;
+}
+
+/*===========================================*/
+.row-head {
+    border-collapse: separate;
+    vertical-align: middle;
+    width:100%;
+  }
+  
+  .row-head th,
+  .row-head td {
+    padding: 0px;
+    height: 20px;
+    border: 1px solid #dbe1e8;
+    
+  }
+  
+  .row-head th {
+    background: #bbd5f0;
+  }
+  
+  .row-head label {
+    line-height: 34px;
+    margin: 0;
+  }
+  
+
+  /*レスポンデント対応用*/
+  @media only screen and (max-width: 800px) {
+    .row-head thead {
+      display: none;
+    }
+    
+    .row-head tr,
+    .row-head td {
+      display: block;
+      width: 100px;
+      border: 1px solid #dbe1e8;
+    }
+    
+    .row-head tr {
+      border: 1px solid #dbe1e8;
+      border-radius: 5px;
+      box-shadow: 3px 3px rgba(0, 0, 0, .1);
+      margin-bottom: 20px;
+      padding: 8px 8px 0;
+    }
+    
+    .row-head td {
+      border: none;
+      border-bottom: 1px solid #dbe1e8;
+      display: flex;
+      justify-content: space-between;
+      text-align: right;
+    }
+    .row-head td:last-child {
+      border-bottom: none;
+    }
+    .row-head td::before {
+      content: attr(aria-label);
+      display: inline-block;
+      font-weight: bold;
+      text-align: left;
+      padding-right: 20px;
+      white-space: nowrap;
+    }
+    
+    .row-head td.bt-area::before {
+      display: none;
+    }
+    .row-head td.bt-area a {
+      background: #007aff;
+      border-radius: 5px;
+      color: #fff;
+      display: inline-block;
+      flex: 1;
+      height: 40px;
+      margin: 0 2px;
+      overflow: hidden;
+      width: auto;
+    }
+    .row-head td.bt-area a::before {
+      align-items: center;
+      content: attr(aria-label);
+      display: flex;
+      font-size: 14px;
+      height: 100%;
+      justify-content: center;
+      line-height: 40px;
+      width: 100%;
+    }
+    
+    .row-head.header-check tr {
+      padding-left: 40px;
+      position: relative;
+    }
+    .row-head.header-check td:first-child {
+      align-items: center;
+      background: #fff;
+      border-right: 1px solid #dbe1e8;
+      border-bottom: none;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      left: 0;
+      padding: 0;
+      position: absolute;
+      text-align: center;
+      top: 0;
+      width: 40px;
+    }
+    .row-head.header-check td:first-child::before {
+      display: none;
+    }
+  }
+
+
+  .show_menus{
+    padding:20px 10px 0 0;
+    float:right;
+  }
+  .show_menus a{
+    color:gray;
+    padding-left:5px;
+  }

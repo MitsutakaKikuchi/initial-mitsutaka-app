@@ -1,0 +1,125 @@
+<div class="main posts-index ">
+    <div class="list-container">
+          <div class="form-body-child">
+          <% if @all_user.find_by(user_id: @current_user.id) == nil%>
+               <div class= "list-message">
+               <h1>下校時間が登録されていません</h1>
+               <h1 class="list-menu"><a href="/home_time">下校時間を登録する</a><h1>
+               </div>
+          </div>
+          <% else%>
+
+<!--~項目 -->
+
+    <div class="list-container-grid">
+          <div>
+
+                    <div class="kids_list_container">
+                         <table class="list-head time_title">
+                              <thead >
+                                   <tr>
+                                        <th>/</th>
+                                   </tr>
+                         </table>
+
+                         <table class="list-head heaeck menu ">
+                              <thead >
+                                   <tr>
+                                        <th >ひとり帰り</th>
+                                   </tr>
+                              </thead>
+                         </table>
+
+                         <table class="list-head heaeck menu">
+                              <thead >
+                                   <tr>
+                                        <th >おむかえ</th>
+                                   </tr>
+                              </thead>
+
+                         </table>
+
+                    </div>
+
+<!--~登室児童氏名 -->
+
+                    <div class="kids_list_container">               
+                         <table class="list-head time_title">
+                              <% @time.each do |time|%>
+                              <tr class="time_menu">
+                                   <th >
+                                        <%= time.time.to_s%>
+                                   </th>
+                              </tr>
+                         </table>
+
+                         <table class="list-head heaeck menu">
+                                   <tr class="colmenu">
+                                   <% @kids =  Arrive.where(user_id: @current_user.id).where(time: time.time.to_s).where(pick_up: "一人帰り").order(:arrive_id)
+                                   @kids_pick_up =  Arrive.where(user_id: @current_user.id, time: time.time.to_s, pick_up: "お迎え").order(:arrive_id)%>
+                                        <% @kids.each do |kids| %>
+                                             <% if kids.message != ""%>
+                                                  <% message = "message" %>
+                                             <%else%>
+                                                  <% message = "" %>
+                                             <% end %>
+                                   <td ><%= "(" + kids.grade + ")."%><a class="kids_list_a <%= message%>" href="/students/<%= kids.arrive_id %>"> <%= kids.kana%></a></td>
+                                        <%end%>
+                                   </tr>
+                         </table>
+
+                         <table class="list-head heaeck menu">
+                                   <tr class="colmenu">
+                                        <% @kids_pick_up.each do |kids_pick_up| %>
+                                             <% if kids_pick_up.message != ""%>
+                                                  <% message = "message" %>
+                                             <%else%>
+                                                  <% message = "" %>
+                                             <% end %>
+                                   <td ><%= "(" + kids_pick_up.grade + ")."%><a class="kids_list_a <%= message%>" href="/students/<%= kids_pick_up.arrive_id %>"> <%=  kids_pick_up.kana%></a></td>
+                                        <%end%>
+                                   </tr>
+
+                              <table class="list-head heaeck menu">
+                                   <tr class="colmenu">
+                                   </tr>
+                         <%end%>
+                         </table>
+                    </div>     
+          </div> 
+
+
+          <div>
+                    <div>
+                         <table class="list-head heaeck menu">
+                              <thead >
+                                   <tr>
+                                        <th>おやすみ</th>
+                                   </tr>
+                              </thead>
+                         </table>
+                    </div>
+
+                    <div>               
+                         <table class="list-head heaeck menu">
+                                   <tr class="colmenu-3">
+                                        <% @absence.each do |absence| %>
+                                             <% if absence.message != ""%>
+                                                  <% message = "message" %>
+                                             <%else%>
+                                                  <% message = "" %>
+                                             <% end %>
+                                   <td><a class="kids_list_a  <%= message%>" href="/students/<%= absence.arrive_id %>"> <%= "(" + absence.grade + ")." + absence.kana%></a></td>
+                                        <%end%>
+                                   </tr>
+                         </table>
+
+
+                    </div>     
+          </div> 
+                    <%end%>
+     </div>
+               <p class="show_menus"><%= link_to("オールリセット", "/students/kids_all_delete", {method: "post",data: { confirm: '本当に削除しますか?(この作業は取り消せません)' }} ) %></p>  
+
+
+</div>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kamaitachi</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+      <header>
+      <div class="header-logo">
+        <% if @current_user %>
+          <%= link_to("かまいたち(仮)", "/top") %>
+        <% else %>
+          <%= link_to("かまいたち(仮)", "/") %>
+        <% end %>
+      </div>
+      <ul class="header-menus">
+        <% if @current_user %>
+          <li>
+            <%= link_to(@current_user.name, "/chief") %>
+          </li>
+          <li class="menu-students">
+            <%= link_to("登録児童一覧", "/students") %>
+          </li>
+          <li class="menu-home_time">
+            <%= link_to("下校時間入力", "/home_time") %>
+          </li>
+          <li class="menu-list">
+            <%= link_to("下校時間確認", "/list") %>
+          </li>
+          <li>
+            <%= link_to("ログアウト", "/logout", {method: :post, data:{confirm: "ログアウトしますか？"}}) %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to("ログイン", "/login") %>
+          </li>
+        <% end %>
+      </ul>
+    </header>
+
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

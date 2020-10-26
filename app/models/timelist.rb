@@ -1,0 +1,2 @@
+class Timelist < ApplicationRecord
+end

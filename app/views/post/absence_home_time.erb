@@ -1,0 +1,30 @@
+
+<div class="main posts-index">
+    <div class="container">
+        <div class="form-heading">〈おやすみの登録〉</div>
+            <div class="home_post_menu">
+                   <a><%= link_to("下校時間の登録","/home_time")%></a>
+            </div>
+            <div class="form post-users-form">
+            <div class="form-body">
+                <% @absence.errors.full_messages.each do |message| %>
+                <div class="form-error">
+                    <%= message %>
+                </div>
+                <% end %>
+
+                <%= form_tag("/students/#{@current_user.id}/absence") do %>
+
+                  <p class="child-header">連絡事項/備考</p>
+                    <textarea name="message" value="<%= @message%>"></textarea>
+
+                  <p class="child-header">児童ID</p>
+                    <input name="arrive_id" required: true value="<%= @arrive_id%>"autofocus>
+                <input type="submit" value="登録">
+                <% end %>
+                
+            </div>
+            </div>
+
+    </div>    
+</div>    

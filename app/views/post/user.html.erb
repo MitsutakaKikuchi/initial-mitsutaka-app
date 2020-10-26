@@ -1,0 +1,65 @@
+
+<div class="main posts-index">
+        <div class="kids-container">
+            <div class="form-heading">〈登録児童一覧〉</div>
+                <div class="form-body-child ">
+                    <div class="form-body">
+                        <table class="row-head header-check">
+                            <thead>
+                                <tr>
+                                <th width="35"></th>
+                                <th width="40">ID</th>
+                                <th width="100">学年</th>
+                                <th width="100">名前</th>
+                                <th width="200">ふりがな</th>
+                                <th width="80">下校時間</th>
+                                <th width="80">下校方法</th>
+                                <th width="80">下校情報の削除</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <% @user.users2s.each do |user| %>
+                                <tr>
+                                <td align="center"><input type="checkbox"><label></label></td>
+                                <td aria-label="#"><%= user.arrive_id%></td>
+                                <td aria-label="学年"><%=user.grade%>年生</td>
+                                <td aria-label="名前" ><%=user.name%></td>
+                            <% @arrive = Arrive.find_by(arrive_id: user.arrive_id) %> 
+                                 <% if @arrive %>
+                                         <% if @arrive.message != ""%>
+                                              <% message = "message" %>
+                                         <%else%>
+                                              <% message = "" %>
+                                         <% end %>
+                                <td aria-label="かな" class="<%= message%>"><u><%= link_to(user.kana,"/students/#{user.arrive_id}")%></u></td>  
+                                        <% if @arrive.pick_up == "おやすみ"%>
+                                            <td aria-label="下校時間"><%= link_to("-","/students/#{user.arrive_id}")%></td>
+                                        <%else%>
+                                            <td aria-label="下校時間"><%= link_to(@arrive.time,"/students/#{user.arrive_id}")%></td>  
+                                        <%end%>
+                                            <td aria-label="迎えの有無"><%= link_to(@arrive.pick_up,"/students/#{user.arrive_id}")%></td>
+                                        <% else%>
+                                        <td aria-label="かな" class="<%= message%>"><u><%= link_to(user.kana,"/students/#{user.arrive_id}")%></u></td>  
+                                        <td aria-label="未入力" colspan="2"><%= link_to("未入力","/home_time")%></td>
+                                    <% end%>
+
+
+                                <td align="center" class="bt-area">
+
+                                   <%= link_to("/students/#{user.arrive_id}/kids_destroy", {method: "post",data: { confirm: '下校情報を削除しますか?(この作業は取り消せません)' }})do%>
+                                    <span class="icon-button mt-icon delete-icon fa fa-trash"></span>
+                                   <%end%>
+
+                                   
+                                </td>
+                                </tr>
+                            <% end %>
+                            </tbody>
+                        </table>            
+
+                    </div>
+                </div>    
+            </div>
+     
+    </div>    
+</div>

@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    models:
+      arrive: 下校時間
+    attributes:
+      arrive:
+        arrive_id: 入力されたID
+        time: 下校時刻
+        pick_up: お迎えの有無

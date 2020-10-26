@@ -1,0 +1,73 @@
+
+<div class="main posts-index">
+    <div class="container">
+        <div class="form-heading">〈下校時間の登録〉</div>
+            <div class="home_post_menu">
+                   <a><%= link_to("おやすみの登録","/absence")%></a>
+            </div>
+            <div class="form post-users-form">
+            <div class="form-body">
+                <% @kids_post.errors.full_messages.each do |message| %>
+                <div class="form-error">
+                    <%= message %>
+                </div>
+                <% end %>
+                <%= form_tag("/students/kidspost") do %>
+
+                <%= form_with model: @kidspost  do |f| %>
+                <div>
+                    <%= f.label :time, '下校時間' %>
+                    <%= f.select :time, {
+                        '11:00': "11:00",
+                        '11:30': "11:30",
+                        '12:00': "12:00",
+                        '12:30': "12:30",
+                        '13:00': "13:00",
+                        '13:30': "13:30",
+                        '14:00': "14:00",
+                        '14:30': "14:30",
+                        '15:00': "15:00",
+                        '15:30': "15:30",
+                        '16:00': "16:00",
+                        '16:30': "16:30",
+                        '17:00': "17:00",
+                        '17:30': "17:30",
+                        '18:00': "18:00",
+                        '18:30': "18:30",
+                        '19:00': "19:00"
+                        }, {include_blank: '選択してください',:selected=>@time}, { class: 'form-control' , required: true}%>
+                </div>
+
+                <p class="child-header">迎えの有無</p>
+                       <table class="row-head header-check">
+                            <thead>
+                                <tr width="100%">
+                                <th >一人帰り</th>
+                                <th >お迎え</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                <div class="radio-btn">
+                                    <td aria-label="#" name="pick_up" id="Radio1"><%= radio_button_tag(:pick_up, "一人帰り",@hoge20)  %></td>
+                                    <td aria-label="#" name="pick_up" id="Radio2"><%= radio_button_tag(:pick_up, "お迎え",@hoge21) %></td>
+                                </div>
+                                </tr>
+                            </tbody>
+                        </table>    
+
+                  <p class="child-header">連絡事項/備考</p>
+                    <textarea name="message"><%= @message%></textarea>
+
+                  <p class="child-header">児童ID</p>
+                    <input name="arrive_id" required: true value="<%= @arrive%>" autofocus>
+                <input type="submit" value="登録">
+                <% end %>
+                <% end %>
+                
+            </div>
+            </div>
+
+    </div>    
+</div>    

@@ -1,0 +1,87 @@
+
+<div class="main posts-index">   
+    <div class="container">
+        <div class="form-heading">〈登録情報変更〉</div>
+            <div class="form post-users-form">
+            <div class="form-body">
+                <% if @error_message %>
+                <div class="form-error">
+                    <%= @error_message %>
+                </div>
+                <% end %>
+
+                <%= form_tag("/students/#{params[:id]}/update") do %>
+                <p class="child-header">児童氏名</p>
+                    <input name="name" value="<%= @user.name %>"> 
+                <p class="child-header">ふりがな</p>
+                    <input  name="kana" value="<%= @user.kana %>">
+                <p class="child-header">学年</p>
+
+                       <table class="row-head header-check">
+                            <thead>
+                                <tr width="100%">
+                                <th >1年生</th>
+                                <th >2年生</th>
+                                <th >3年生</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr >
+                                <div class="radio-btn">
+                                    <td aria-label="#" name="grade" id="Radio1"><%= radio_button_tag(:grade, "1",@hoge1)  %></td>
+                                    <td aria-label="#" name="grade" id="Radio2"><%= radio_button_tag(:grade, "2",@hoge2) %></td>
+                                    <td aria-label="#" name="grade" id="Radio3"><%= radio_button_tag(:grade, "3",@hoge3) %></td>
+                                </div>
+                                </tr>
+                            </tbody>
+                        </table>    
+
+                <p class="child-header">登録</p>
+                       <table class="row-head header-check">
+                            <thead>
+                                <tr width="100%">
+                                <th >18時登録</th>
+                                <th >19時登録</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <div class="radio-btn">
+                                    <td aria-label="#"><%= radio_button_tag(:time, "18時登録",@hoge18) %></td>
+                                    <td aria-label="#"><%= radio_button_tag(:time, "19時登録",@hoge19) %></td>
+                                </div>
+                                </tr>
+                            </tbody>
+                        </table>    
+                <p class="child-header">下校コース</p>
+                       <table class="row-head header-check">
+                            <thead>
+                                <tr >
+                                <th width="20%">オレンジ</th>
+                                <th width="20%">黄</th>
+                                <th width="20%">赤</th>
+                                <th width="20%">緑</th>
+                                <th width="20%">青</th>
+                                </tr>
+                            </thead>
+                            <tbody >
+                                <tr>
+                                <div class="radio-btn">
+                                    <td aria-label="#" ><span class="radio-btn"><%= radio_button_tag(:color, "オレンジ",@hoge11) %></span></td>
+                                    <td aria-label="#" ><%= radio_button_tag(:color, "黄",@hoge12) %></td>
+                                    <td aria-label="#"><%= radio_button_tag(:color, "赤",@hoge13) %></td>
+                                    <td aria-label="#"><%= radio_button_tag(:color, "緑",@hoge14) %></td>
+                                    <td aria-label="#"><%= radio_button_tag(:color, "青",@hoge15) %></td>
+                                </div>
+                                </tr>
+                            </tbody>
+                        </table>   
+ 
+
+                <input type="submit" value="更新">
+                <% end %>
+                
+            </div>
+        </div>
+    </div>    
+</div>    
