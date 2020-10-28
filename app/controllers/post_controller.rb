@@ -81,7 +81,7 @@ class PostController < ApplicationController
     if Users2.find_by(arrive_id: params[:arrive_id])
       user = Users2.find_by(arrive_id: params[:arrive_id])
       
-      if (@current_user.id == user.user_id) then
+      if (@current_user.id.to_i == user.user_id.to_i) then
         @kana = user.kana
         @grade = user.grade
 
@@ -140,7 +140,7 @@ class PostController < ApplicationController
     if Users2.find_by(arrive_id: params[:arrive_id])
       user = Users2.find_by(arrive_id: params[:arrive_id])
       
-      if (@current_user.id == user.user_id) then
+      if (@current_user.id.to_i == user.user_id.to_i) then
         @kana = user.kana
         @grade = user.grade
 
@@ -189,7 +189,6 @@ class PostController < ApplicationController
     if Users2.find_by(arrive_id: params[:id])
       @user = Users2.find_by(arrive_id: params[:id])
       user_id = @user.user_id
-      current_user = User.find_by(id: session[:user_id])
       @arrive = Arrive.find_by(arrive_id: params[:id])
       
       if user_id.to_i != @current_user.id.to_i
