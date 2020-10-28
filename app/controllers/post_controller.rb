@@ -192,15 +192,16 @@ class PostController < ApplicationController
       current_user = User.find_by(id: session[:user_id])
       @arrive = Arrive.find_by(arrive_id: params[:id])
       
-      if user_id != current_user.id
+      if user_id != @current_user.id
 
-        flash[:notice] = "このIDは本アカウントでは無効ですA"
+        flash[:notice] = "このID(#{user_id})は本アカウントでは無効ですA"
         redirect_to("/students" )
       end
     else
       flash[:notice] = "このIDは本アカウントでは無効ですB"
       redirect_to("/students" )
     end
+
   end
 
   def kids_list
