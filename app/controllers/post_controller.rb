@@ -194,7 +194,7 @@ class PostController < ApplicationController
       
       if user_id != @current_user.id
 
-        flash[:notice] = "このID(#{user_id})は本アカウントでは無効ですA"
+        flash[:notice] = "このID(#{@current_user.id})は本アカウントでは無効ですA"
         redirect_to("/students" )
       end
     else
