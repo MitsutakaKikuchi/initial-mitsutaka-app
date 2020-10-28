@@ -189,9 +189,10 @@ class PostController < ApplicationController
     if Users2.find_by(arrive_id: params[:id])
       @user = Users2.find_by(arrive_id: params[:id])
       user_id = @user.user_id
+      current_user = User.find_by(id: session[:user_id])
       @arrive = Arrive.find_by(arrive_id: params[:id])
       
-      if user_id != @current_user.id
+      if user_id != current_user.id
 
         flash[:notice] = "このIDは本アカウントでは無効ですA"
         redirect_to("/students" )
