@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "/chief" =>"user#user_top"
   get "/top" =>"home#top"
   get "/students/:id/" => "post#show"
+  
   resources :students, only: :show, param: :arrive_id, constraints: { code: /\d+/ }
 
   get "/list" => "post#kids_list"
