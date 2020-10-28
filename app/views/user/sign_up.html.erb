@@ -1,0 +1,30 @@
+
+<div class="main posts-index">
+    <div class="container">
+        <div class="form-heading">〈利用者登録〉</div>
+            <div class="form post-users-form">
+            <div class="form-body">
+                <% if @error_message %>
+                <div class="form-error">
+                    <%= @error_message %>
+                </div>
+                <% end %>
+
+                <%= form_tag("/sign_up_user") do %>
+
+                <p class="child-header">利用現場名</p>
+                    <input name="name" value="<%= @name %>">
+                <p class="child-header">メールアドレス</p>
+                    <input  name="email" value="<%= @email %>">
+                <p class="child-header">パスワード</p>
+                  <input  name="password" value="<%= @password %>">
+                       
+
+                <input type="submit" value="登録">
+                <% end %>
+                
+            </div>
+            </div>
+
+    </div>    
+</div>    

@@ -23,5 +23,9 @@ Rails.application.routes.draw do
   post "login" => "user#login"
   post "logout" => "user#logout"
   get "/login" => "home#login"
+
+  post "user/delete" => "user#delete"
+  get "/sign_up" => "user#sign_up"
+  post "sign_up_user" => "user#sign_up_user"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

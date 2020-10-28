@@ -17,12 +17,12 @@ class PostController < ApplicationController
     end
 
         @user = Users2.new(
-          name:params[:name],
-          kana:params[:kana],
+          name: params[:name],
+          kana: params[:kana],
           grade: params[:grade], 
           time: params[:time] ,
-          color:params[:color],
-          user_id:  @current_user.id,
+          color: params[:color],
+          user_id: @current_user.id,
           arrive_id: max)
 
       if @user.save
