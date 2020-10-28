@@ -145,7 +145,7 @@ class PostController < ApplicationController
         @grade = user.grade
 
         @absence = Arrive.new(
-          user_id: @current_user.id,
+          user_id: @current_user.id.to_i,
           pick_up: "おやすみ", 
           arrive_id: params[:arrive_id],
           message: params[:message],
