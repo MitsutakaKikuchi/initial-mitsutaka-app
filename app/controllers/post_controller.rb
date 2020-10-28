@@ -193,11 +193,11 @@ class PostController < ApplicationController
       
       if user_id.to_i != @current_user.id.to_i
 
-        flash[:notice] = "このIDは本アカウント(#{@current_user.id})では無効ですA"
+        flash[:notice] = "このIDは本アカウントでは無効です"
         redirect_to("/students" )
       end
     else
-      flash[:notice] = "このIDは本アカウントでは無効ですB"
+      flash[:notice] = "このIDは本アカウントでは無効です"
       redirect_to("/students" )
     end
 
