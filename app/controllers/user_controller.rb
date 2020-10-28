@@ -1,6 +1,6 @@
 class UserController < ApplicationController
 before_action :authenticate_user, {only:[:user_top,:logout]}
-before_action :forbid_login_user, {only:[:login,:login_form]}
+before_action :forbid_login_user, {only:[:login,:login_form,:sign_up]}
 
   def sign_up
   end
@@ -12,7 +12,7 @@ before_action :forbid_login_user, {only:[:login,:login_form]}
       session[:user_id] = @user.id
       redirect_to("/top")
     else
-      flash[:notice] = "さんの登録が完了しました"
+      @error_message = "空欄もしくは登録できないアドレスが確認されました"
       @name = params[:name]
       @email = params[:email]
       render("sign_up")
