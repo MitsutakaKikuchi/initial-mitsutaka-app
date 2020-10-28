@@ -97,13 +97,6 @@ class PostController < ApplicationController
 
         if @kids_post.save
           flash[:notice] = "#{@kana}さんの登録が完了しました"
-          if params[:pick_up] == "一人帰り"
-            @hoge20 = true
-          elsif params[:pick_up] == "お迎え"
-            @hoge21 = true
-          else
-            @hoge = false
-          end
           @time = params[:time]
           render("post/home_time")
 
