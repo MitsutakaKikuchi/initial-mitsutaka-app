@@ -69,3 +69,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'hirb'
 gem 'hirb-unicode'
 gem 'rails-i18n'
+
+gem 'rails_12factor'
