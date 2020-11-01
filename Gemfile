@@ -71,3 +71,6 @@ gem 'hirb-unicode'
 gem 'rails-i18n'
 
 gem 'rails_12factor'
+
+gem 'pry-rails'
+gem 'pry-doc'
