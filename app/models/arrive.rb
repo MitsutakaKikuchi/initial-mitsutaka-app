@@ -1,6 +1,6 @@
 class Arrive < ApplicationRecord
     has_many :users, through: :users2s 
-    default_scope -> { order(user_id: :asc) }
+    # default_scope -> { order(user_id: :asc) }
     
 
     validates :arrive_id, {presence: true, uniqueness: true}
