@@ -224,12 +224,13 @@ class PostController < ApplicationController
 
   def destroy
     @user = Users2.find_by(id: params[:id])
-    @user.destroy
 
-    if find_by(arrive_id: @user.arrive_id)
-    @arrive = Arrive.find_by(arrive_id: @user.arrive_id)
-    @arrive.destroy
-    end
+      if Arrive.find_by(arrive_id: @user.arrive_id)
+      @arrive = Arrive.find_by(arrive_id: @user.arrive_id)
+      @user.destroy
+      @arrive.destroy
+      end
+    @user.destroy
     flash[:notice] = "削除が完了しました"
     redirect_to("/students")
   end
