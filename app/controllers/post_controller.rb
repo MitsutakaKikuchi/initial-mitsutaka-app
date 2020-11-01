@@ -196,9 +196,11 @@ class PostController < ApplicationController
 
   def kids_list
     @all_user = Arrive.all
-    @time = Arrive.where(user_id: @current_user.id).where.not(time: nil).select(:time).distinct.order(:arrive_id)
-    @absence = Arrive.where(user_id: @current_user.id).where(pick_up: "おやすみ").order(:arrive_id)
+    @time = Arrive.where(user_id: @current_user.id).where.not(time: nil).select(:time).distinct
+    @absence = Arrive.where(user_id: @current_user.id).where(pick_up: "おやすみ")
   end
+
+
 
   def edit
     @user = Users2.find_by(id: params[:id])
