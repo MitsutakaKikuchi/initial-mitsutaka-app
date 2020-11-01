@@ -1,5 +1,4 @@
 class Arrive < ApplicationRecord
-    has_many :users, through: :users2s
 
 
     
