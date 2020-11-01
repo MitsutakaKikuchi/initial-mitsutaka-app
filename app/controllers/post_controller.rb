@@ -227,7 +227,6 @@ class PostController < ApplicationController
 
       if Arrive.find_by(arrive_id: @user.arrive_id)
       @arrive = Arrive.find_by(arrive_id: @user.arrive_id)
-      @user.destroy
       @arrive.destroy
       end
     @user.destroy
