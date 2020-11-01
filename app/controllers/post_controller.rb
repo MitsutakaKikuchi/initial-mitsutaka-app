@@ -134,7 +134,6 @@ class PostController < ApplicationController
       user = Users2.find_by(arrive_id: params[:arrive_id])
       
       if (@current_user.id.to_i == user.user_id.to_i) then
-        @kana = user.kana
         @grade = user.grade
 
         @absence = Arrive.new(
@@ -142,12 +141,12 @@ class PostController < ApplicationController
           pick_up: 'おやすみ', 
           arrive_id: params[:arrive_id],
           message: params[:message],
-          kana: @kana,
+          kana: user.kana,
           grade: @grade
           )
 
         if @absence.save
-          flash[:notice] = "#{@kana}さんの登録が完了しました"
+          flash[:notice] = "#{user.kana}さんの登録が完了しました"
           render("post/absence_home_time")
         end
 
