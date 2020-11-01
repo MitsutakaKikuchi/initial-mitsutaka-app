@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 3020_09_10_144239) do
+ActiveRecord::Schema.define(version: 3020_09_16_092657) do
 
   create_table "arrives", force: :cascade do |t|
     t.integer "arrive_id"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 3020_09_10_144239) do
     t.string "absence"
     t.string "message"
     t.integer "user_id"
+    t.string "kana"
+    t.string "grade"
   end
 
   create_table "timelists", force: :cascade do |t|
