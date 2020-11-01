@@ -1,5 +1,5 @@
 class Arrive < ApplicationRecord
-    has_many :users, through: :users2s, foreign_key: 'arrive_id'
+    has_many :users, through: :users2s
 
 
     
