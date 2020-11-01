@@ -115,11 +115,11 @@ class PostController < ApplicationController
           render("post/home_time")
         end
       else
-        flash[:notice] = "このIDは本アカウントでは無効です"
+        flash[:alert] = "このIDは本アカウントでは無効です"
         redirect_to("/home_time" )
       end
     else
-      flash[:notice] = "このIDは登録されていません"
+      flash[:alert] = "このIDは登録されていません"
       redirect_to("/home_time" )
     end
   end
@@ -151,11 +151,11 @@ class PostController < ApplicationController
         end
 
       else
-        flash[:notice] = "このIDは本アカウントでは無効です"
+        flash[:alert] = "このIDは本アカウントでは無効です"
         redirect_to("/absence" )
       end
     else
-      flash[:notice] = "このIDは登録されていません"
+      flash[:alert] = "このIDは登録されていません"
       redirect_to("/absence" )
     end
   end
@@ -184,11 +184,11 @@ class PostController < ApplicationController
       
       if user_id.to_i != @current_user.id.to_i
 
-        flash[:notice] = "このIDは本アカウントでは無効です"
+        flash[:alert] = "このIDは本アカウントでは無効です"
         redirect_to("/students" )
       end
     else
-      flash[:notice] = "このIDは本アカウントでは無効です"
+      flash[:alert] = "このIDは本アカウントでは無効です"
       redirect_to("/students" )
     end
 
@@ -250,7 +250,7 @@ class PostController < ApplicationController
       flash[:notice] = "#{@user.kana}さんの下校情報を削除しました"
       redirect_to("/students")
     else
-      flash[:notice] = "下校時間が登録されていません"
+      flash[:alert] = "下校時間が登録されていません"
       redirect_to("/students")
     end
   end

@@ -294,10 +294,23 @@
   }
   
   /* フラッシュ ================================ */
-  .flash {
+  .flash_notice {
     padding: 10px 0;
     color: white;
-    background: rgb(0,63,255);
+    background: rgba(27, 203, 219, 0.863);
+    text-align: center;
+    position: absolute;
+    top: 64px;
+
+    z-index: 9;
+    width: 100%;
+    border-radius: 0 0 2px 2px;
+    font-size: 17px;
+  }
+  .flash_alert {
+    padding: 10px 0;
+    color: white;
+    background: rgba(253, 40, 40, 0.87);
     text-align: center;
     position: absolute;
     top: 64px;
