@@ -134,6 +134,7 @@ class PostController < ApplicationController
 
   def absence_home_time
     @absence = Arrive.new
+    
   end
 
 

@@ -48,7 +48,7 @@
                     <textarea name="message" placeholder="連絡事項がある場合は記入"><%= @message%></textarea>
 
                 <p class="child-header">児童ID</p>
-                    <input name="arrive_id" required: true value="<%= @arrive_id %>" autofocus placeholder="登録児童のIDを入力してください(例):<%= @user.id %>1001">
+                    <input name="arrive_id" required: true value="<%= @arrive_id %>" autofocus placeholder="登録児童のIDを入力してください(例):<%= @current_user.id  %>1001">
                 <input type="submit" value="登録">
                 <% end %>
                 <% end %>
