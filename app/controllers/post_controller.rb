@@ -109,6 +109,7 @@ class PostController < ApplicationController
 
         else
           @error_message = "空欄があります"
+          @arrive_id = params[:arrive_id]
           @user_id = params[:user_id]
           @time = params[:time]
           @message = params[:message]
@@ -203,7 +204,7 @@ class PostController < ApplicationController
 
   def kids_list
     @all_user = Arrive.all
-    @time = Arrive.where(user_id: @current_user.id).where.not(time: nil).select(:time).distinct
+    @time = Arrive.where(user_id: @current_user.id).where.not(time: nil).select(:time).distinct.recent
     @absence = Arrive.where(user_id: @current_user.id).where(pick_up: "おやすみ")
   end
 

@@ -39,7 +39,7 @@
                 </div>
 
                 <p class="child-header">迎えの有無</p>
-                    <div class="inline-radio">
+                    <div class="inline-radio" required: true>
                         <div><input type="radio" name="pick_up" value="一人帰り" <%= @hoge20 %> ><label>一人帰り</label></div>
                         <div><input type="radio" name="pick_up" value="お迎え" <%= @hoge21 %> ><label>お迎え</label></div>
                     </div>
@@ -48,7 +48,7 @@
                     <textarea name="message" placeholder="連絡事項がある場合は記入"><%= @message%></textarea>
 
                 <p class="child-header">児童ID</p>
-                    <input name="arrive_id" required: true value="<%= @arrive%>" autofocus placeholder="登録児童のIDを入力してください(例):11001">
+                    <input name="arrive_id" required: true value="<%= @arrive_id %>" autofocus placeholder="登録児童のIDを入力してください(例):11001">
                 <input type="submit" value="登録">
                 <% end %>
                 <% end %>

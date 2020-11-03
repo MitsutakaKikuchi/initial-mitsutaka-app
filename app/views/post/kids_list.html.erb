@@ -40,10 +40,10 @@
                </div>
 
 <!--~登室児童氏名 -->
-               <div class="kids_list_container">               
+               <div class="kids_list_container"> 
+          <% @time.each do |time|%>
                     <table class="list-head time_title">
                     <!--~登録された時間を抽出 -->
-                         <% @time.each do |time|%>
                          <tr class="time_menu">
                               <th >
                                    <%= time.time.to_s%>
@@ -78,7 +78,7 @@
                          <%end%>
                          </tr>
                     </table>
-                         <%end%>
+          <%end%>
           </div>     
      </div> 
 
