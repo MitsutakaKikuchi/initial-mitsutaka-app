@@ -1,5 +1,6 @@
 <div class="main users-new login">
   <div class="container">
+  <!-- 利用者ログイン画面-->
     <div class="form-heading">ログイン</div>
       <div class="home_post_menu">
         <a><%= link_to("利用者登録","/sign_up")%></a>
@@ -11,6 +12,8 @@
             <%= @error_message %>
           </div>
         <% end %>
+        
+          <!-- ログインフォーム -->
         <%= form_tag("/login") do %>
           <p>メールアドレス</p>
           <input name="email" value="<%= @email %>">

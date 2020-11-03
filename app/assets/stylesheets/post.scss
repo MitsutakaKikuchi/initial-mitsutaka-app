@@ -56,10 +56,50 @@ textarea{
     box-shadow: 0 2px 6px #c1ced7;
     padding-top:15px;
   }
-.radio-btn{
-  text-align:center;
-  margin:0 auto;
+
+  .inline-radio {
+    display: flex;
+  border-radius: 3px;
+    overflow: hidden;
+  border: 1px solid #b6b6b6;
+
+
+    div {
+        position: relative;
+        flex: 1;
+    }
+
+    input {
+    width: 100%;
+    height: 30px;
+    opacity: 0;
+    }
+
+    label {
+        position: absolute;
+        top: 0; left: 0;
+        color: #979797;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+        border-right: 1px solid #b6b6b6;
+    }
+
+    div:last-child label {
+        border-right: 0;
+    }
+
+    input:checked + label {
+        background: #accfec;
+      font-weight: 500;
+        color: #fff;
+    }
 }
+
 .child-header{
   padding-top:10px;
 

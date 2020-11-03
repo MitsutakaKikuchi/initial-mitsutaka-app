@@ -7,7 +7,7 @@
                         <table class="row-head header-check">
                             <thead>
                                 <tr>
-                                <th width="35"></th>
+ <!--                           <th width="35"></th>  -->
                                 <th width="40">ID</th>
                                 <th width="100">学年</th>
                                 <th width="100">名前</th>
@@ -20,7 +20,7 @@
                             <tbody>
                             <% @user.users2s.each do |user| %>
                                 <tr>
-                                <td align="center"><input type="checkbox"><label></label></td>
+    <!--                        <td align="center"><input type="checkbox"><label></label></td>  -->
                                 <td aria-label="#"><%= user.arrive_id%></td>
                                 <td aria-label="学年"><%=user.grade%>年生</td>
                                 <td aria-label="名前" ><%=user.name%></td>

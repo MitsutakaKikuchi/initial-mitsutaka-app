@@ -35,11 +35,11 @@ class PostController < ApplicationController
         @kana = params[:kana]
 
         if params[:grade] == "1"
-          @hoge1 = true
+          @hoge1 = "checked"
         elsif params[:grade] == "2"
-          @hoge2 = true
+          @hoge2 = "checked"
         elsif params[:grade] == "3"
-          @hoge3 = true
+          @hoge3 = "checked"
         else
           @hoge = false
         end
@@ -98,6 +98,13 @@ class PostController < ApplicationController
         if @kids_post.save
           flash[:notice] = "#{@kana}さんの登録が完了しました"
           @time = params[:time]
+          if params[:pick_up] == "一人帰り"
+            @hoge20 = "checked"
+          elsif params[:pick_up] == "お迎え"
+            @hoge21 = "checked"
+          else
+            @hoge = false
+          end
           render("post/home_time")
 
         else
@@ -106,9 +113,9 @@ class PostController < ApplicationController
           @time = params[:time]
           @message = params[:message]
             if params[:pick_up] == "一人帰り"
-              @hoge20 = true
+              @hoge20 = "checked"
             elsif params[:pick_up] == "お迎え"
-              @hoge21 = true
+              @hoge21 = "checked"
             else
               @hoge = false
             end

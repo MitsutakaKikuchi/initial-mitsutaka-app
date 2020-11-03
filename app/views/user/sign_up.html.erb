@@ -6,27 +6,25 @@
                 <a><%= link_to("ログイン","/login")%></a>
             </div>
             <div class="form post-users-form">
-            <div class="form-body">
-                <% if @error_message %>
-                <div class="form-error">
-                    <%= @error_message %>
-                </div>
-                <% end %>
+                <div class="form-body">
+                    <% if @error_message %>
+                    <div class="form-error">
+                        <%= @error_message %>
+                    </div>
+                    <% end %>
 
-                <%= form_tag("/sign_up_user") do %>
-
-                <p class="child-header">利用現場名</p>
-                    <input name="name" value="<%= @name %>">
-                <p class="child-header">メールアドレス</p>
-                    <input  name="email" value="<%= @email %>">
-                <p class="child-header">パスワード</p>
-                  <input type="password" name="password" value="<%= @password %>">
-                       
-
-                <input type="submit" value="登録">
-                <% end %>
-                
-            </div>
+                 <!-- 利用者現場登録フォーム-->
+                    <%= form_tag("/sign_up_user") do %>
+                    <p class="child-header">利用現場名</p>
+                        <input name="name" value="<%= @name %>">
+                    <p class="child-header">メールアドレス</p>
+                        <input  name="email" value="<%= @email %>">
+                    <p class="child-header">パスワード</p>
+                    <input type="password" name="password" value="<%= @password %>">
+                        
+                    <input type="submit" value="登録">
+                    <% end %>
+               </div>
             </div>
 
     </div>    

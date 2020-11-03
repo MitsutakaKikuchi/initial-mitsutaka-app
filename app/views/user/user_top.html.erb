@@ -18,25 +18,14 @@
                     <input  name="kana" value="<%= @kana %>">
                 <p class="child-header">学年</p>
 
-                       <table class="row-head header-check">
-                            <thead>
-                                <tr width="100%">
-                                <th >1年生</th>
-                                <th >2年生</th>
-                                <th >3年生</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                <div class="radio-btn">
-                                    <td aria-label="#" name="grade" id="Radio1"><%= radio_button_tag(:grade, "1",@hoge1)  %></td>
-                                    <td aria-label="#" name="grade" id="Radio2"><%= radio_button_tag(:grade, "2",@hoge2) %></td>
-                                    <td aria-label="#" name="grade" id="Radio3"><%= radio_button_tag(:grade, "3",@hoge3) %></td>
-                                </div>
-                                </tr>
-                            </tbody>
-                        </table>    
-<!--
+                    <div class="inline-radio">
+                        <div><input type="radio" name="grade" value="1" <%= @hoge1 %> ><label>1年生</label></div>
+                        <div><input type="radio" name="grade" value="2" <%= @hoge2 %> ><label>2年生</label></div>
+                        <div><input type="radio" name="grade" value="3" <%= @hoge3 %> ><label>3年生</label></div>
+                    </div>
+
+
+<!-- 将来用＿利用最長時間や下校コース等を登録する際に使用 
                 <p class="child-header">登録</p>
                        <table class="row-head header-check">
                             <thead>

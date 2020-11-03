@@ -16,10 +16,10 @@
                 <%= form_tag("/students/#{@current_user.id}/absence") do %>
 
                   <p class="child-header">連絡事項/備考</p>
-                    <textarea name="message" value="<%= @message%>"></textarea>
+                    <textarea name="message" value="<%= @message%>" placeholder="連絡事項がある場合は記入"></textarea>
 
                   <p class="child-header">児童ID</p>
-                    <input name="arrive_id" required: true value="<%= @arrive_id%>"autofocus>
+                    <input name="arrive_id" required: true value="<%= @arrive_id%>" autofocus placeholder="登録児童のIDを入力してください(例):11001">
                 <input type="submit" value="登録">
                 <% end %>
                 
