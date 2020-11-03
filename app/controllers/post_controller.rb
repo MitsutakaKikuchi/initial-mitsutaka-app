@@ -44,27 +44,27 @@ class PostController < ApplicationController
           @hoge = false
         end
   
-      if params[:time] == "18時登録"
-        @hoge18 = true
-      elsif params[:time] == "19時登録"
-        @hoge19 = true
-      else
-          @hoge = false
-      end
+      # if params[:time] == "18時登録"
+      #   @hoge18 = "checked"
+      # elsif params[:time] == "19時登録"
+      #   @hoge19 = "checked"
+      # else
+      #     @hoge = false
+      # end
   
-      if params[:color] == "オレンジ"
-        @hoge11 = true
-      elsif params[:color] == "黄"
-        @hoge12 = true
-      elsif params[:color] == "赤"
-        @hoge13 = true
-      elsif params[:color] == "緑"
-        @hoge14 = true
-      elsif params[:color] == "青"
-        @hoge15 = true
-      else
-        @hoge = false
-      end
+      # if params[:color] == "オレンジ"
+      #   @hoge11 = true
+      # elsif params[:color] == "黄"
+      #   @hoge12 = true
+      # elsif params[:color] == "赤"
+      #   @hoge13 = true
+      # elsif params[:color] == "緑"
+      #   @hoge14 = true
+      # elsif params[:color] == "青"
+      #   @hoge15 = true
+      # else
+      #   @hoge = false
+      # end
         render("user/user_top")
       end
   end
@@ -211,6 +211,16 @@ class PostController < ApplicationController
 
   def edit
     @user = Users2.find_by(id: params[:id])
+    if @user.grade == "1"
+      @hoge1 = "checked"
+    elsif @user.grade  == "2"
+      @hoge2 = "checked"
+    elsif @user.grade  == "3"
+      @hoge3 = "checked"
+    else
+      @hoge = false
+    end
+    
   end
 
   def update
